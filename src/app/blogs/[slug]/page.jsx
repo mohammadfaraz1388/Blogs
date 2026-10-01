@@ -1,5 +1,6 @@
 "use client";
 
+import notfound from "@/app/not-found";
 import { useParams } from "next/navigation";
 
 const blogData = {
@@ -221,6 +222,10 @@ const blogData = {
 
 function page() {
   const { slug } = useParams();
+
+  if (slug > 6) {
+    return notfound();
+  }
 
   const article = blogData[slug] || {
     category: "Trading",
