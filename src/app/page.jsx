@@ -1,6 +1,12 @@
 import Link from "next/link";
+import { resolve } from "styled-jsx/css";
 
-function home() {
+async function home() {
+  await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Test!");
+    }, 5000);
+  });
   return (
     <div className="min-h-screen bg-[#080808] text-white flex items-center justify-center px-6 py-16">
       <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-[#101010] px-8 py-16 shadow-2xl shadow-red-950/20 sm:px-12 md:px-20 md:py-24">
@@ -25,12 +31,12 @@ function home() {
 
           <div className="mt-10 flex flex-wrap gap-4">
             <Link href="/blogs">
-            <div className="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3">
-              <p className="text-xs uppercase tracking-widest text-zinc-500">
-                BLOGS
-              </p>
-              <p className="mt-1 font-semibold text-white">Let's read</p>
-            </div>
+              <div className="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3">
+                <p className="text-xs uppercase tracking-widest text-zinc-500">
+                  BLOGS
+                </p>
+                <p className="mt-1 font-semibold text-white">Let's read</p>
+              </div>
             </Link>
 
             <div className="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3">

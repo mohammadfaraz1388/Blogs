@@ -1,7 +1,5 @@
-"use client";
-
 import notfound from "@/app/not-found";
-import { useParams } from "next/navigation";
+import { resolve } from "styled-jsx/css";
 
 const blogData = {
   1: {
@@ -220,8 +218,25 @@ const blogData = {
   },
 };
 
-function page() {
-  const { slug } = useParams();
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  console.log(slug);
+  return {
+    title: `Blog ${slug}`,
+    description: `This is a short BLOG about trading!`,
+  };
+}
+
+async function page({ params }) {
+  await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Test!");
+    }, 2000);
+  });
+
+  const { slug } = await params;
+
+  console.log(slug);
 
   if (slug > 6) {
     return notfound();

@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { resolve } from "styled-jsx/css";
 
-function blogs() {
+async function blogs() {
   const blogs = [
     {
       title: "What Is Forex Trading and How Does It Work?",
@@ -27,6 +28,12 @@ function blogs() {
       slug: "6",
     },
   ];
+
+  await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Test!");
+    }, 3000);
+  });
 
   return (
     <div className="min-h-screen bg-[#080808] px-5 py-12 text-white sm:px-8 lg:px-12">
