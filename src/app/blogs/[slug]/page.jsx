@@ -1,6 +1,19 @@
 import notfound from "@/app/not-found";
 import { resolve } from "styled-jsx/css";
 
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  return [
+    { slug: "1" },
+    { slug: "2" },
+    { slug: "3" },
+    { slug: "4" },
+    { slug: "5" },
+    { slug: "6" },
+  ];
+}
+
 const blogData = {
   1: {
     category: "Trading Basics",
